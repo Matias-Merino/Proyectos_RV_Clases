@@ -5,82 +5,30 @@ using UnityEngine.UI;
 
 public class DoorControllerKey : MonoBehaviour
 {
-    public Transform player; // Referencia al transform del jugador
-    public float interactDistance = 10f; // Distancia a la que el jugador puede interactuar con la puerta
-    public Button doorButton; 
-    public Button keyButton; 
     public float rotationSpeed = 90f;
     public float tr;
-    public Transform posPuerta;
-    public Transform posLlave;
-    //public GameObject llave;
+    bool doorOpened = false;
 
-    private bool nearKey = false;
-    private bool nearDoor = false; // Variable para controlar si el jugador está cerca de la puerta
-    private bool doorOpened = false; // Variable para controlar si la puerta está abierta
-    private bool hasKey = false;
-
-    private void Update()
+    private void OnEnable()
     {
-        float distanceKey = Vector3.Distance(posLlave.position, player.position);
-        float distanceDoor = Vector3.Distance(posPuerta.position, player.position);
-
-        if (distanceDoor <= interactDistance && doorOpened == false)
-        {
-            if (!nearDoor)
-            {
-                nearDoor = true;
-                doorButton.gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            if (nearDoor)
-            {
-                nearDoor = false;
-                doorButton.gameObject.SetActive(false);
-            }
-        }
-
-        if (distanceKey <= interactDistance)
-        {
-            if (!nearKey)
-            {
-                nearKey = true;
-                keyButton.gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            if (nearKey)
-            {
-                nearKey = false;
-                keyButton.gameObject.SetActive(false);
-            }
-        }
+        KeyCol.open += OpenDoor;
+    }
+    private void OnDisable()
+    {
+        KeyCol.open -= OpenDoor;
     }
 
-    public void PickKey()
-    {
-        hasKey = true;
-        posLlave.gameObject.SetActive(false);
-        keyButton.gameObject.SetActive(false);
-    }
     public void OpenDoor()
     {
         // Si la puerta ya está abierta, no hacer nada
         if (doorOpened)
             return;
-        if (hasKey == true)
-        {
             // Rota la puerta hacia la posición abierta
             Quaternion targetRotation = Quaternion.Euler(0f, tr, 0f);
             StartCoroutine(RotateDoor(targetRotation));
 
             // Marca la puerta como abierta
             doorOpened = true;
-            doorButton.gameObject.SetActive(false);
-        }
     }
 
     private IEnumerator RotateDoor(Quaternion targetRotation)
