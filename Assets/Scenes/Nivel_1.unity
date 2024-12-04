@@ -4141,8 +4141,8 @@ MonoBehaviour:
   minimunLoudnes: 0.01
   scanner: {fileID: 2733812513190862203, guid: cd4814bb043024d4bb02be1c57065371, type: 3}
   canCreate: 0
-  scanerValue: 0.25
-  scannerCooldown: 0.3
+  scanerValue: 0.35
+  scannerCooldown: 0.6
   scannerPos: {fileID: 1531082192}
 --- !u!54 &955366207
 Rigidbody:
