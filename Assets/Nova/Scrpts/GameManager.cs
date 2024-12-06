@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject defeatMenu;
     public GameObject player;
     public Transform defeat;
+    public TMP_Text timeText;
+    public GameObject timeTextobj;
     public float timer = 50;
 
     private void Awake()
@@ -29,8 +32,12 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
+        float min = Mathf.FloorToInt(timer / 60);
+        float sec = Mathf.FloorToInt(timer % 60);
+        timeText.text = string.Format("{0,0}:{1,00}", min, sec);
         if (timer <= 0)
         {
+            timeTextobj.SetActive(false);
             defeatMenu.SetActive(true);
             player.transform.position = defeat.position;
         }
