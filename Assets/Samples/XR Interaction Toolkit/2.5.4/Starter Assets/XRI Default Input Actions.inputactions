@@ -2638,6 +2638,28 @@
                 },
                 {
                     "name": "",
+                    "id": "903088dc-ee8c-4cd5-8454-1e6d9847cab8",
+                    "path": "<XRInputV1::Oculus::OculusTouchControllerOpenXR>{LeftHand}/secondarybutton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1201ab8-1f0d-4e04-9f55-7e1517ef1cd2",
+                    "path": "<XRInputV1::Oculus::OculusTouchControllerOpenXR>{RightHand}/secondarybutton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c6b9b79c-fc67-4eea-8465-d2e8e2d74fef",
                     "path": "<OculusTouchController>{LeftHand}/primaryButton",
                     "interactions": "",

@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject defeatMenu;
     public GameObject player;
-    public Transform defeat;
+    public GameObject defeat;
     public TMP_Text timeText;
     public GameObject timeTextobj;
     public float timer = 50;
+    bool tp = false;
 
     private void Awake()
     {
@@ -39,7 +40,11 @@ public class GameManager : MonoBehaviour
         {
             timeTextobj.SetActive(false);
             defeatMenu.SetActive(true);
-            player.transform.position = defeat.position;
+            if (tp == false)
+            {
+                player.transform.position = defeat.transform.position;
+                tp = true;
+            }
         }
     }
     private void Pause(InputAction.CallbackContext context)
@@ -54,6 +59,10 @@ public class GameManager : MonoBehaviour
     public void MenuScene()
     {
         SceneManager.LoadScene(0);
+    }
+    public void Quitapp()
+    {
+        Application.Quit();
     }
 
 }

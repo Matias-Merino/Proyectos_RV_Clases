@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Nova/Scenes/Menu.unity
-    guid: 55185da8038db074eacefcfd4327e282
+    guid: 9a9fabdef133a8f45818d38e484d521e
   - enabled: 1
     path: Assets/Nova/Scenes/Game.unity
     guid: 917eea677bb5d084c8c615767381f57d
