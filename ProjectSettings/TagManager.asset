@@ -8,6 +8,11 @@ TagManager:
   - Scanner
   - pickableObj
   - Key
+  - Soda
+  - Fries
+  - Burger
+  - NPC
+  - Floor
   layers:
   - Default
   - TransparentFX
